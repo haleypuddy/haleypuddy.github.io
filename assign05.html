@@ -241,28 +241,112 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="bar-charts-using-us-arrest-data" class="level1">
 <h1>Bar Charts using US Arrest Data:</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>state.names <span class="ot">=</span> <span class="fu">row.names</span>(USArrests)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(USArrests<span class="sc">$</span>Murder, <span class="at">names.arg =</span> state.names, <span class="at">las =</span> <span class="dv">2</span>, <span class="at">ylab =</span> <span class="st">"Murder Rate per 100,000"</span>, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Murder Rate in the United States in 1973"</span>, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="assign05_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>datasets<span class="sc">::</span>USArrests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Murder Assault UrbanPop Rape
+Alabama          13.2     236       58 21.2
+Alaska           10.0     263       48 44.5
+Arizona           8.1     294       80 31.0
+Arkansas          8.8     190       50 19.5
+California        9.0     276       91 40.6
+Colorado          7.9     204       78 38.7
+Connecticut       3.3     110       77 11.1
+Delaware          5.9     238       72 15.8
+Florida          15.4     335       80 31.9
+Georgia          17.4     211       60 25.8
+Hawaii            5.3      46       83 20.2
+Idaho             2.6     120       54 14.2
+Illinois         10.4     249       83 24.0
+Indiana           7.2     113       65 21.0
+Iowa              2.2      56       57 11.3
+Kansas            6.0     115       66 18.0
+Kentucky          9.7     109       52 16.3
+Louisiana        15.4     249       66 22.2
+Maine             2.1      83       51  7.8
+Maryland         11.3     300       67 27.8
+Massachusetts     4.4     149       85 16.3
+Michigan         12.1     255       74 35.1
+Minnesota         2.7      72       66 14.9
+Mississippi      16.1     259       44 17.1
+Missouri          9.0     178       70 28.2
+Montana           6.0     109       53 16.4
+Nebraska          4.3     102       62 16.5
+Nevada           12.2     252       81 46.0
+New Hampshire     2.1      57       56  9.5
+New Jersey        7.4     159       89 18.8
+New Mexico       11.4     285       70 32.1
+New York         11.1     254       86 26.1
+North Carolina   13.0     337       45 16.1
+North Dakota      0.8      45       44  7.3
+Ohio              7.3     120       75 21.4
+Oklahoma          6.6     151       68 20.0
+Oregon            4.9     159       67 29.3
+Pennsylvania      6.3     106       72 14.9
+Rhode Island      3.4     174       87  8.3
+South Carolina   14.4     279       48 22.5
+South Dakota      3.8      86       45 12.8
+Tennessee        13.2     188       59 26.9
+Texas            12.7     201       80 25.5
+Utah              3.2     120       80 22.9
+Vermont           2.2      48       32 11.2
+Virginia          8.5     156       63 20.7
+Washington        4.0     145       73 26.2
+West Virginia     5.7      81       39  9.3
+Wisconsin         2.6      53       66 10.8
+Wyoming           6.8     161       60 15.6</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(USArrests<span class="sc">$</span>Murder, <span class="at">names.arg =</span> state.names, <span class="at">las =</span> <span class="dv">2</span>, <span class="at">horiz=</span><span class="cn">TRUE</span>, </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Murder Rate in the United States in 1973 Per 100,000"</span>, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.9</span>,<span class="fl">0.9</span>,<span class="fl">0.1</span>,<span class="fl">0.6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>state.names <span class="ot">=</span> <span class="fu">row.names</span>(USArrests)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(USArrests<span class="sc">$</span>Murder, <span class="at">names.arg =</span> state.names, <span class="at">las =</span> <span class="dv">2</span>, <span class="at">horiz=</span><span class="cn">TRUE</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Murder Rate per 100,000 in the United States in 1973"</span>, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="assign05_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> USArrests<span class="sc">$</span>Murder <span class="sc">+</span> USArrests<span class="sc">$</span>Assault <span class="sc">+</span> USArrests<span class="sc">$</span>Rape</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(counts) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(USArrests)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"Aggregated M A R in the United States"</span>, <span class="at">col =</span> blues9,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"Frequency"</span>,<span class="at">las=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(USArrests<span class="sc">$</span>Assault, <span class="at">names.arg =</span> state.names, <span class="at">las =</span> <span class="dv">2</span>, <span class="at">horiz=</span><span class="cn">TRUE</span>, <span class="at">ylab =</span> <span class="st">"Assault Rate per 100,000"</span>, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Assault Rate in the United States in 1973"</span>, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="assign05_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(USArrests<span class="sc">$</span>Rape, <span class="at">names.arg =</span> state.names, <span class="at">las =</span> <span class="dv">2</span>, <span class="at">horiz=</span><span class="cn">TRUE</span>, <span class="at">ylab =</span> <span class="st">"Rape Rate per 100,000"</span>, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Rape Rate in the United States in 1973"</span>, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="assign05_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> USArrests<span class="sc">$</span>Murder <span class="sc">+</span> USArrests<span class="sc">$</span>Assault <span class="sc">+</span> USArrests<span class="sc">$</span>Rape</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(counts) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(USArrests)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(counts, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"Aggregated M A R in the United States"</span>, <span class="at">col =</span> blues9,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"Frequency"</span>,<span class="at">las=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="assign05_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Run linear model of murder, assault, rape, and urban population rates in USArrests data frame</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Md1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Murder<span class="sc">~</span>Assault<span class="sc">+</span>Rape<span class="sc">+</span>UrbanPop, <span class="at">data =</span> USArrests)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(USArrests,<span class="fu">aes</span>(<span class="at">x=</span>UrbanPop,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y=</span>Md1<span class="sc">$</span>fitted,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">col=</span>Rape,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill=</span>Assault))<span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Population percentage"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Murder per 100,000"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">title=</span> <span class="st">"Murder as a Function of Urban Pop: With Rape &amp; Assault"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="assign05_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
